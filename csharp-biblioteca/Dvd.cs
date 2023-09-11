@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace csharp_biblioteca
+﻿namespace csharp_biblioteca
 {
-    internal class Dvd
+    public class Dvd : Documento
     {
+
+        public int Durata { get; set; }
+        public Dvd(string Id, string Titolo, string Anno, string Settore, string Scaffale, string NomeAutore, string CognomeAutore, int Durata) : base(Id, Titolo, Anno, Settore, Scaffale, NomeAutore, CognomeAutore)
+        {
+            this.Durata = Durata;
+        }
     }
+
+
+
+
 }
+
