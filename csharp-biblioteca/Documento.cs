@@ -4,9 +4,9 @@
     {
         // PROPRIETA' E STATO
 
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Titolo { get; set; }
-        public string Anno { get; set; }
+        public int Anno { get; set; }
         public string Settore { get; set; }
         public string Scaffale { get; set; }
         public string NomeAutore { get; set; }
@@ -14,7 +14,7 @@
 
         //COSTRUTTORE
 
-        public Documento(string Id, String Titolo, string Anno, string Settore, string Scaffale, string NomeAutore, String CognomeAutore)
+        public Documento(int Id, String Titolo, int Anno, string Settore, string Scaffale, string NomeAutore, String CognomeAutore)
 
         {
             this.Id = Id;
@@ -27,5 +27,9 @@
 
         }
 
+        public Documento(string? titolo)
+        {
+            Titolo = titolo;
+        }
     }
 }

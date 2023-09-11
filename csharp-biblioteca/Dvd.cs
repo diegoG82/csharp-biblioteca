@@ -4,7 +4,7 @@
     {
 
         public int Durata { get; set; }
-        public Dvd(string Id, string Titolo, string Anno, string Settore, string Scaffale, string NomeAutore, string CognomeAutore, int Durata) : base(Id, Titolo, Anno, Settore, Scaffale, NomeAutore, CognomeAutore)
+        public Dvd(int Id, string Titolo, int Anno, string Settore, string Scaffale, string NomeAutore, string CognomeAutore, int Durata) : base(Id, Titolo, Anno, Settore, Scaffale, NomeAutore, CognomeAutore)
         {
             this.Durata = Durata;
         }
