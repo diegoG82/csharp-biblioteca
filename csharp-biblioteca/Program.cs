@@ -12,6 +12,7 @@ Libro libro = new Libro(1234, "CleanCode", 2020, "Programmazione", "Scaffale nor
 //CREO UN DVD
 Dvd dvd = new Dvd(4321, "Adrenalina Blu", 1996, "Sportivo", "Scaffale est", "Nome", "Cognome", 120);
 
+//AGGIUNTA LIBRO E DVD AL DATABASE FITTIZIO
 biblioteca.AggiungiDoc(libro);
 biblioteca.AggiungiDoc(dvd);
 
@@ -42,8 +43,6 @@ while (true)
             Console.WriteLine("Questo utente esiste già.");
         }
     }
-
-
 
     else if (sceltaop == "p")
     {
