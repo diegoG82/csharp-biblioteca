@@ -1,15 +1,19 @@
 ﻿
 using csharp_biblioteca;
 
+
+//CREAZIONE BIBLIOTECA
+Biblioteca biblioteca = new Biblioteca();
+
+
 //CREO UN LIBRO
 Libro libro = new Libro(1234, "CleanCode", 2020, "Programmazione", "Scaffale nord", "Nome", "Cognome", 200);
 
 //CREO UN DVD
 Dvd dvd = new Dvd(4321, "Adrenalina Blu", 1996, "Sportivo", "Scaffale est", "Nome", "Cognome", 120);
 
-//CREAZIONE BIBLIOTECA
-Biblioteca biblioteca = new Biblioteca();
-
+biblioteca.AggiungiDoc(libro);
+biblioteca.AggiungiDoc(dvd);
 
 
 
@@ -28,13 +32,32 @@ while (true)
     {
         Console.WriteLine("inserisci il nome dell'utente: ");
         string utente = Console.ReadLine();
-        biblioteca.AggiungiUtente(utente);
+        if (!biblioteca.Utenti.Contains(utente))
+        {
+            biblioteca.AggiungiUtente(utente);
+            Console.WriteLine($"Utente {utente} aggiunto!");
+        }
+        else
+        {
+            Console.WriteLine("Questo utente esiste già.");
+        }
     }
+
+
+
     else if (sceltaop == "p")
     {
-        Console.WriteLine("inserisci il prestito: ");
+        Console.WriteLine("Inserisci il prestito: ");
         string prestito = Console.ReadLine();
-        biblioteca.AggiungiPrestito(prestito);
+        if (!biblioteca.Prestiti.Contains(prestito))
+        {
+            biblioteca.AggiungiPrestito(prestito);
+            Console.WriteLine($"Prestito {prestito} aggiunto!");
+        }
+        else
+        {
+            Console.WriteLine("Questo prestito esiste già.");
+        }
     }
     else if (sceltaop == "c")
     {
