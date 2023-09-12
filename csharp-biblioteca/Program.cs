@@ -7,16 +7,20 @@ Biblioteca biblioteca = new Biblioteca();
 
 
 //CREO UN LIBRO
-Libro libro = new Libro(1234, "CleanCode", 2020, "Programmazione", "Scaffale nord", "Nome", "Cognome", 200);
+Libro clean = new Libro(1234, "CleanCode", 2020, "Programmazione", "Scaffale nord", "Nome", "Cognome", 200);
 
 //CREO UN DVD
-Dvd dvd = new Dvd(4321, "Adrenalina Blu", 1996, "Sportivo", "Scaffale est", "Nome", "Cognome", 120);
+Dvd adrenalina = new Dvd(4321, "Adrenalina Blu", 1996, "Sportivo", "Scaffale est", "Nome", "Cognome", 120);
 
-//AGGIUNTA LIBRO E DVD AL DATABASE FITTIZIO
-biblioteca.AggiungiDoc(libro);
-biblioteca.AggiungiDoc(dvd);
+//AGGIUNTA LIBRO E DVD AL DATABASE FITTIZI
+biblioteca.AggiungiDoc(clean);
+biblioteca.AggiungiDoc(adrenalina);
 
+//TEST PAGINE LIBRO
+Console.WriteLine($"il {clean.Titolo} ha {clean.Pagine} pagine");
 
+//TEST DURATA DVD 
+Console.WriteLine($"{adrenalina.Titolo} dura {adrenalina.Durata} minuti");
 
 while (true)
 {
@@ -44,20 +48,34 @@ while (true)
         }
     }
 
+
+
     else if (sceltaop == "p")
     {
-        Console.WriteLine("Inserisci il prestito: ");
-        string prestito = Console.ReadLine();
-        if (!biblioteca.Prestiti.Contains(prestito))
+        Console.WriteLine("Inserisci il nome dell'utente: ");
+        string utente = Console.ReadLine();
+        Console.WriteLine("Inserisci il titolo del documento da prestare: ");
+        string titolo = Console.ReadLine();
+        Documento doc = biblioteca.CercaDoc(titolo);
+
+        if (doc != null)
         {
+            Console.WriteLine("Inserisci la data di inizio del prestito (formato: dd-mm-yyyy): ");
+            DateTime dataInizio = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("Inserisci la data di fine del prestito (formato: dd-mm-yyyy): ");
+            DateTime dataFine = DateTime.Parse(Console.ReadLine());
+
+            Prestito prestito = new Prestito(utente, doc, dataInizio, dataFine);
             biblioteca.AggiungiPrestito(prestito);
-            Console.WriteLine($"Prestito {prestito} aggiunto!");
+
+            Console.WriteLine("Prestito assegnato!");
         }
         else
         {
-            Console.WriteLine("Questo prestito esiste già.");
+            Console.WriteLine("Nessun documento trovato con quel titolo.");
         }
     }
+
     else if (sceltaop == "c")
     {
         Console.WriteLine("inserisci il titolo che cerchi: ");

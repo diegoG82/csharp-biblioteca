@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.Design;
-
-namespace csharp_biblioteca
+﻿namespace csharp_biblioteca
 {
     public class Biblioteca
     {
@@ -9,14 +7,14 @@ namespace csharp_biblioteca
         //LISTA UTENTI
         public List<string> Utenti { get; set; }
         //LISTA PRESTITI
-        public List<string> Prestiti { get; set; }
+        public List<Prestito> Prestiti { get; set; }
 
         public Biblioteca()
         {
 
             Documenti = new List<Documento>();
             Utenti = new List<string>();
-            Prestiti = new List<string>();
+            Prestiti = new List<Prestito>();
 
         }
 
@@ -35,38 +33,12 @@ namespace csharp_biblioteca
         }
 
         //AGGIUNTA PRESTITO
-        public void AggiungiPrestito(string prestito)
+        public void AggiungiPrestito(Prestito prestito)
         {
             Prestiti.Add(prestito);
         }
 
-        public Documento CercaPerTitolo(string titolo)
-        {
-            foreach (var doc in Documenti)
-            {
-                if (doc.Titolo == titolo)
-                {
-                    return doc;
-                }
-
-
-            }
-            return null;
-
-        }
-        public string CercaPrestito(string nome, string cognome)
-        {
-            string nomeCognome = nome + " " + cognome;
-            foreach (var prestito in Prestiti)
-            {
-                if (prestito.Contains(nomeCognome))
-                {
-                    return prestito;
-                }
-
-            }
-            return null;
-        }
+  
 
 
         public Documento CercaDoc(string titolo)
