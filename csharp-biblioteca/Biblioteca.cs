@@ -38,7 +38,7 @@
             Prestiti.Add(prestito);
         }
 
-  
+
 
 
         public Documento CercaDoc(string titolo)
@@ -52,6 +52,24 @@
             }
             return null;
         }
+
+        public Prestito CercaPrestito(string utente)
+        {
+            foreach (Prestito prestito in Prestiti)
+            {
+                if (prestito.Utente == utente)
+                {
+                    return prestito;
+                }
+            }
+
+
+            return null;
+        }
+
+
+
+
     }
 }
 

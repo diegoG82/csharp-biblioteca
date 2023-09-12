@@ -24,7 +24,7 @@ Console.WriteLine($"{adrenalina.Titolo} dura {adrenalina.Durata} minuti");
 
 while (true)
 {
-    Console.WriteLine("Che operazione devi effettuare? (a = aggiungi doc, u = aggiungi utente, p = aggiungi prestito, c = cerca doc,  e = esci)");
+    Console.WriteLine("Che operazione devi effettuare? (a = aggiungi doc, u = aggiungi utente, p = aggiungi prestito, r = cerca prestito,  c = cerca doc,  e = esci)");
     string sceltaop = Console.ReadLine();
     if (sceltaop == "a")
     {
@@ -75,6 +75,23 @@ while (true)
             Console.WriteLine("Nessun documento trovato con quel titolo.");
         }
     }
+
+    else if (sceltaop == "r")
+    {
+        Console.WriteLine("Inserisci il nome dell'utente per cercare il prestito: ");
+        string utente = Console.ReadLine();
+        Prestito prestito = biblioteca.CercaPrestito(utente);
+
+        if (prestito != null)
+        {
+            Console.WriteLine($"Prestito trovato: {prestito.Utente} ha preso in prestito {prestito.Documento.Titolo} dal {prestito.DataInizio:dd/MM/yyyy} al {prestito.DataFine:dd/MM/yyyy}");
+        }
+        else
+        {
+            Console.WriteLine("Nessun prestito trovato per quell'utente.");
+        }
+    }
+
 
     else if (sceltaop == "c")
     {
